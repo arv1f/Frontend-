@@ -1,0 +1,10 @@
+.my-image-class {
+    background-image: var(--my-image);
+    background-repeat: no-repeat;
+    background-position: center;
+  
+    &:hover {
+    background-image: var(--hover-image);
+      transform: scale(1.5);
+    }
+  }

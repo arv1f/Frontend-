@@ -7,7 +7,7 @@ const userStore = create<UsersContextType>()(
   immer(
   persist(
     devtools((set) => ({
-      users: [{name:"dsa", password:"fds", url:'rgfev'}],
+      users: [],
       addUser: (payload: User) =>
         set((state) => ({ users: [...state.users, payload] })),
       deleteUser: (userId: number) =>

@@ -31,18 +31,20 @@ const MainPage = ({ onClickChangePage, myName }: Page) => {
   };
 
   const newList: User[] = [];
-  const ListWithValue = () => {
+    const ListWithValue = () => {
     users.forEach((element: User) => {
+      for (let i:number = 0; i<myChange.length; i++)
+      {
       if (search) {
-        if (element.name.slice(0, myChange.length) === myChange) {
+        if (element.name.slice(i, myChange.length+i) === myChange) {
           newList.push(element);
         }
       } else {
-        if (element.url.slice(0, myChange.length) === myChange) {
+        if (element.url.slice(i, myChange.length+i) === myChange) {
           newList.push(element);
         }
-      }
-    });
+      }}
+  });
   };
   if (myChange.length !== 0) {
     ListWithValue();

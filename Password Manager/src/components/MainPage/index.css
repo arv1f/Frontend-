@@ -10,7 +10,7 @@
 .ContainerM{
     margin: 10px 30px 30px 30px;
     display: grid;
-    grid-template-columns: 600px 1100px 250px auto;
+    grid-template-columns: 600px 810px 390px 250px auto;
 }
 .myInput{
     border-color: black;
@@ -21,7 +21,7 @@
 .myButton{
     border: inset 2px;
     position: absolute;
-    top:-5px;
+    top: 0px;
     left: 1950px;
     border-radius: 30px;
     border-color: black;

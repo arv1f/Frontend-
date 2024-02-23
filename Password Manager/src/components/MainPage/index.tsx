@@ -3,18 +3,24 @@ import MyVeryButton from "../Button";
 import userStore from "../../store";
 import { useState } from "react";
 import ButtonNumber from "../ButtonNumber";
+import { User } from "../../interfaces";
+
+interface Width {
+  width: string;
+}
 
 interface Page {
   onClickChangePage: (newValue: string | null) => void;
   myName: string;
 }
-let width: Object;
+let width: Width;
 
 const MainPage = ({ onClickChangePage, myName }: Page) => {
   const [buttonNumber, setButtonNumber] = useState<number | null>(null);
   const [myChange, setMyChange] = useState<string>("");
+  const [search, setSearch] = useState<boolean>(false);
 
-  const users = userStore((set) => set.users)
+  const users = userStore((set) => set.users);
   const functSetButtonNumber = (type: number | null): void => {
     setButtonNumber(type);
     if (type === null) {
@@ -24,13 +30,18 @@ const MainPage = ({ onClickChangePage, myName }: Page) => {
     }
   };
 
-  const newList: string[] = [];
+  const newList: User[] = [];
   const ListWithValue = () => {
-    users.forEach((element) => {
-      console.log(element);
-       if (element.name.slice(0, myChange.length) === myChange) {
-         newList.push(element);
-       }
+    users.forEach((element: User) => {
+      if (search) {
+        if (element.name.slice(0, myChange.length) === myChange) {
+          newList.push(element);
+        }
+      } else {
+        if (element.url.slice(0, myChange.length) === myChange) {
+          newList.push(element);
+        }
+      }
     });
   };
   if (myChange.length !== 0) {
@@ -44,10 +55,22 @@ const MainPage = ({ onClickChangePage, myName }: Page) => {
           id="3"
           defaultValue={myChange}
           onChange={(event) => setMyChange(event.target.value)}
-          placeholder="Nickname search"
+          placeholder={search ? "nickname search" : "url search"}
           className="myInput"
           type="text"
         />
+        <button
+          style={{
+            border: "solid 2.3px",
+            width: "300px",
+            height: "50px",
+            marginTop: "25px",
+            borderRadius: "10px",
+          }}
+          onClick={() => setSearch(!search)}
+        >
+          search by {search ? "url" : "nickname"}
+        </button>
         <h2>{myName}</h2>
         <button className="myButton" onClick={() => onClickChangePage(null)}>
           Выйти

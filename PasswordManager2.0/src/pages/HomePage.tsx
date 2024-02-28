@@ -47,7 +47,7 @@ const HomePage = () => {
         <button className="Add" onClick={() => navigate("/add")}>
           Add user
         </button>
-        <HomeMain value={input} />
+        <HomeMain value={input} urlOrName={urlOrName} />
       </main>
       <div className="o-hide">
         И нет сомнений, что сторонники тоталитаризма в науке ограничены

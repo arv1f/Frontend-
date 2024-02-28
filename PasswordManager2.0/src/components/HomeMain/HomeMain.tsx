@@ -5,16 +5,19 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 interface Props {
   value: string;
+  urlOrName: boolean;
 }
-const HomeMain = ({ value }: Props) => {
+const HomeMain = ({ value, urlOrName }: Props) => {
   const [drawList, setDrawList] = useState<number>(0);
   const { users, deleteUser } = useMainStore<UserContext>((state) => state);
   const navigate = useNavigate();
-
-  const usersList = users.filter((user) => user.name.includes(value));
-
+  let usersList = [];
+  if (urlOrName) {
+    usersList = users.filter((user) => user.url.includes(value));
+  } else {
+    usersList = users.filter((user) => user.name.includes(value));
+  }
   const heihgt: number = users.length;
-  console.log(value);
   return (
     <>
       <div className="MainContainer" style={{ height: `${heihgt * 2}rem` }}>

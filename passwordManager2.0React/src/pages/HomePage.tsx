@@ -13,7 +13,7 @@ const HomePage = () => {
   const UrlOrName = () => {
     setUrlOrName(!urlOrName);
   };
-  const SetInput = (e) => {
+  const SetInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
   };
 

@@ -94,9 +94,9 @@ const AddUserPage = () => {
             <button
               type="button"
               onClick={() => {
-                document.getElementById("password").value = String(
-                  randomId(10),
-                );
+                (
+                  document.getElementById("password") as HTMLInputElement
+                ).value = String(randomId(10));
               }}
               className="PasswordButton"
             >

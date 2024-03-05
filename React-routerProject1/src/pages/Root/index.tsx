@@ -1,32 +1,14 @@
-//import useContactsData from "../../hooks/useContactsData";
+import useContactsData from "../../hooks/useContactsData";
 import { useState } from "react";
 import "./Root.css";
-import { User } from "../../interface";
-import { Link, Outlet, useLoaderData } from "react-router-dom";
-import { getAllContacts } from "../../contacs";
-
-export const loader = async () => {
-  const contacts = await getAllContacts();
-  return contacts;
-};
-
+import { Link, Outlet } from "react-router-dom";
 const Root = () => {
-  //const { data, isLoading } = useContactsData();
+  const { data, isLoading } = useContactsData();
   const [filterWord, setFilterWord] = useState<string>("");
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const { data } = await fetch("../../public/data.json").then((res) =>
-  //       res.json(),
-  //     );
-  //     setData(data);
-  //   };
-  //   fetchData();
-  // }, []);
-  const data = useLoaderData() as User[];
 
   return (
     <div className="root-cont">
-      {false ? (
+      {isLoading ? (
         <div>Loading...</div>
       ) : (
         <div className="left-panel">
@@ -51,7 +33,7 @@ const Root = () => {
                 <div className="avatar">
                   <img src={contact.avatarURL} />
                 </div>
-                {contact.name} {contact.twitter}
+                {contact.name}
               </Link>
             ))}
         </div>

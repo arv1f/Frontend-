@@ -1,28 +1,42 @@
-import { getContact } from "../../contacs";
-import { User } from "../../interface";
+import useOneContactData from "../../hooks/useOneContactData";
 import "./ContactPage.css";
-import { useLoaderData, LoaderFunctionArgs } from "react-router-dom";
-
-export const loader = async ({ params }: LoaderFunctionArgs) => {
-  const contact = await getContact(Number(params.contactId) || 0);
-  return contact;
-};
+import { Link, useParams } from "react-router-dom";
 
 const ContactPage = () => {
-  const user = useLoaderData() as User;
+  const { data, isLoading } = useOneContactData(
+    Number(useParams().contactId) || 0,
+  );
   return (
-    <div className="contact-cont">
-      <div className="userdata__main">
-        <div className="user__avatar">
-          <img src={user.avatarURL} />
+    <>
+      {isLoading ? (
+        <>Loading...</>
+      ) : (
+        <div className="contact-cont">
+          <div className="userdata__main">
+            <div className="user__avatar">
+              <img src={data.avatarURL} />
+            </div>
+            <div className="user__data">
+              <h1>{data.name}</h1>
+              <div>
+                <Link to={""}>{data.twitter}</Link>
+              </div>
+              <div className="userdata__bio">{data.bio}</div>
+              <div className="userdata__buttons">
+                <button
+                // onClick={() => {
+                //   navigate("/contact/" + data.id + "/edit");
+                // }}
+                >
+                  Edit
+                </button>
+                <button style={{ color: "red" }}>Delete</button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="user__data">
-          <h1>{user.name}</h1>
-          <div>Twitter: {user.twitter}</div>
-        </div>
-      </div>
-      <div className="userdata__bio">{user.bio}</div>
-    </div>
+      )}
+    </>
   );
 };
 export default ContactPage;

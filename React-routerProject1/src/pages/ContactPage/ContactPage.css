@@ -40,3 +40,35 @@
 .userdata__bio {
     font-size: 1.5rem;
 }
+
+
+
+
+
+.userdata__buttons {
+    display: flex;
+    gap: 1.5rem;
+    margin-left: 0.5rem;
+}
+
+.userdata__buttons :hover {
+    cursor: pointer;
+    background-color: hsl(0, 0%, 80%);
+    transition: 0.4s ease-in-out;
+    border-color: hsl(0, 0%, 80%);
+    border-color: black;
+}
+.userdata__buttons :focus-visible,
+.userdata__buttons :focus {
+    outline: none;
+}
+
+.userdata__buttons > button {
+    box-shadow: 0 0.1rem 0.5rem hsl(0, 0%, 0%, 0.3);
+    width: 7rem;
+    color: blue;
+    background-color: hsl(0, 0%, 90%);
+    border: solid 1px transparent;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}

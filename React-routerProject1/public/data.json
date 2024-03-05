@@ -2,26 +2,26 @@
   "data": [
     {
       "name": "John",
-      "bio": "I am John",
-      "avatarURL": "https://randomuser.me/api/portraits/men/1.jpg",
+      "bio": "I am John and I am brouther John4",
+      "avatarURL": "https://i.pravatar.cc/300",
       "twitter": "@john"
     },
     {
       "name": "John2",
       "bio": "I am brouther John",
-      "avatarURL": "https://randomuser.me/api/portraits/men/1.jpg",
+      "avatarURL": "https://i.pravatar.cc/300",
       "twitter": "@john2"
     },
     {
       "name": "John3",
       "bio": "I am brouther John2",
-      "avatarURL": "https://randomuser.me/api/portraits/men/1.jpg",
+      "avatarURL": "https://i.pravatar.cc/300",
       "twitter": "@john3"
     },
     {
       "name": "John4",
       "bio": "I am brouther John3",
-      "avatarURL": "https://randomuser.me/api/portraits/men/1.jpg",
+      "avatarURL": "https://i.pravatar.cc/300",
       "twitter": "@john4"
     }
   ]

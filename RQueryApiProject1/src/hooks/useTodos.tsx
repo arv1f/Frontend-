@@ -9,7 +9,7 @@ export const useTodos = (id: number) => {
     });
   } else {
     return useQuery({
-      queryKey: ["todosAll", id],
+      queryKey: ["todosAll"],
       queryFn: () => TodoService.getAll(),
       select: ({ data }) => data,
       //enabled: !!id,

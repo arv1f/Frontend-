@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "name": "John",
+      "bio": "I am John",
+      "avatarURL": "https://randomuser.me/api/portraits/men/1.jpg",
+      "twitter": "@john"
+    },
+    {
+      "name": "John2",
+      "bio": "I am brouther John",
+      "avatarURL": "https://randomuser.me/api/portraits/men/1.jpg",
+      "twitter": "@john2"
+    },
+    {
+      "name": "John3",
+      "bio": "I am brouther John2",
+      "avatarURL": "https://randomuser.me/api/portraits/men/1.jpg",
+      "twitter": "@john3"
+    },
+    {
+      "name": "John4",
+      "bio": "I am brouther John3",
+      "avatarURL": "https://randomuser.me/api/portraits/men/1.jpg",
+      "twitter": "@john4"
+    }
+  ]
+}

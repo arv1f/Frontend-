@@ -1,0 +1,42 @@
+.contact-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.userdata__main {
+    display: inherit;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.user__avatar {
+    --size: 18rem;
+
+    max-width: var(--size);
+    max-height: var(--size);
+
+    display: grid;
+    place-content: center;
+    overflow: hidden;
+    background-color: black;
+    border-radius: 1rem;
+}
+
+.user__avatar > img {
+    width: var(--size);
+}
+.user__data {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.user__data > h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+.userdata__bio {
+    font-size: 1.5rem;
+}

@@ -7,9 +7,7 @@ export const useMainStore = create<UserContext>()(
     devtools(
       persist(
         (set) => ({
-          users: [
-            { id: "1fedfserc", name: "123", password: "1234", url: "1235" },
-          ],
+          users: [],
           addUser: (user: User) => {
             set((state) => {
               state.users.push(user);
@@ -19,24 +17,6 @@ export const useMainStore = create<UserContext>()(
             set((state) => {
               state.users = state.users.filter((user) => user.id !== id);
             }),
-          // editUser: (newName, newPassword, newUrl, id) => {
-          //   set((state) => {
-          //     state.users = state.users.map((u: User) =>
-          //       u.id === id
-          //         ? {
-          //             ...u,
-          //             name: newName,
-          //             password: newPassword,
-          //             url: newUrl,
-          //             // name: newName,
-          //             // password: newPassword,
-          //             // url: newUrl,
-          //             // id: id,
-          //           }
-          //         : u,
-          //     );
-          //   });
-          // },
           editUser: (
             newName: string,
             newPassword: string,

@@ -7,15 +7,21 @@
     position: absolute;
 }
 input{
-    background-color: transparent;
+    color: white;
+    background-color: black;
+    border-radius: 5rem;
+    text-align: left;
+    font-size: 1.5rem;
+    box-shadow: none;
+    border: solid 0.1rem #191919;
 }
 .Edit{
-    border: solid 2px black;
+    border: solid 0.15rem #202530;
     background-color: black;
     border-radius: 1.5rem;
     padding: 1rem;
     width: 20rem;
-    height: 25rem;
+    /* height: 25rem; */
     display: grid;
     grid-template-rows: 1.5rem 2.5rem 2.5rem 2.5rem 2.5rem 2.3rem 2.5rem 3rem
 }
@@ -43,4 +49,14 @@ input{
 .error{
     color: red;
     font-size: 17px;
+}
+.EditButton{
+    border-radius: 1.3rem;
+    text-align: center;
+    font-size: 1.5rem;
+    border: solid 0.15rem #202530;
+    left: 10%;
+    margin-top: -1rem;
+    height: 4rem;
+    background-color: #202530;
 }

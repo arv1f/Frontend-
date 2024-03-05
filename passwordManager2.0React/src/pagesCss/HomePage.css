@@ -6,7 +6,8 @@
     grid-template-columns: 35% 45% 12% 5%;
     background-color: transparent;
     /* background: linear-gradient(rgba(0,0,0,1) 10%, #2b2b2b 70%); */
-    border-bottom: solid 5px #302525;
+    border-bottom: solid 5px rgba(195, 19, 19, 0.045);
+
     width: 97%;
     height: 4rem;
     /* padding-top: 1rem;

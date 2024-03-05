@@ -46,12 +46,26 @@ const EditUserIdPage = () => {
       navigate("/home");
     }
   };
-
+  let height: number = 20;
+  if (errors.name) {
+    height += 2;
+  }
+  if (errors.password) {
+    height += 2;
+  }
+  if (errors.url) {
+    height += 2;
+  }
+  console.log(height);
   return (
     <div>
       <div className="o-hide">2</div>
       <div className="ContainerEdit">
-        <form className="Edit" onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className="Edit"
+          style={{ height: `${height}rem`, top: `20%` }}
+          onSubmit={handleSubmit(onSubmit)}
+        >
           New name:
           <input {...register("name")} type="text" placeholder="name" />
           {errors.name && <p>{errors.name.message}</p>}
@@ -62,7 +76,7 @@ const EditUserIdPage = () => {
           <input {...register("url")} type="text" placeholder="url" />
           {errors.url && <p>{errors.url.message}</p>}
           <div></div>
-          <button disabled={isSubmitting} type="submit">
+          <button className="EditButton" disabled={isSubmitting} type="submit">
             {isSubmitting ? "Loading..." : "Edit"}
           </button>
         </form>

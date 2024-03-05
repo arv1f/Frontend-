@@ -41,7 +41,8 @@ const AddUserPage = () => {
     } else {
       addUser({
         name: data.name,
-        password: data.password,
+        password: (document.getElementById("password") as HTMLInputElement)
+          .value,
         url: data.url,
         id: randomId(),
       });
@@ -55,10 +56,19 @@ const AddUserPage = () => {
       .toString(36)
       .substring(2, length + 2);
   };
-
+  let height: number = 25;
+  if (errors.name) {
+    height += 3.2;
+  }
+  if (errors.password) {
+    height += 3.2;
+  }
+  if (errors.url) {
+    height += 3.2;
+  }
   return (
     <div className="AddCentrContainer">
-      <div className="AddContainer">
+      <div className="AddContainer" style={{ height: `${height}rem` }}>
         <h2>Add User</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="name">Name:</label>
@@ -93,11 +103,11 @@ const AddUserPage = () => {
             />
             <button
               type="button"
-              onClick={() => {
-                (
+              onClick={() =>
+                ((
                   document.getElementById("password") as HTMLInputElement
-                ).value = String(randomId(10));
-              }}
+                ).value = String(randomId(10)))
+              }
               className="PasswordButton"
             >
               Random
@@ -128,6 +138,7 @@ const AddUserPage = () => {
           />
           {errors.url && <p className="error">{errors.url.message}</p>}
           <button
+            className="AddButton"
             disabled={isSubmitting}
             type="submit"
             style={{ marginTop: "1rem" }}

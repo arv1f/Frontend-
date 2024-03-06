@@ -5,6 +5,19 @@ import { Link, Outlet } from "react-router-dom";
 const Root = () => {
   const { data, isLoading } = useContactsData();
   const [filterWord, setFilterWord] = useState<string>("");
+  const DarkMode = () => {
+    document.querySelector("body")?.setAttribute("data-theme", "dark");
+  };
+  const LightMode = () => {
+    document.querySelector("body")?.setAttribute("data-theme", "light");
+  };
+  const ToggleMode = (e) => {
+    if (e.target.checked) {
+      DarkMode();
+    } else {
+      LightMode();
+    }
+  };
 
   return (
     <div className="root-cont">
@@ -12,6 +25,14 @@ const Root = () => {
         <div>Loading...</div>
       ) : (
         <div className="left-panel">
+          <label className="switch">
+            <input
+              type="checkbox"
+              onChange={ToggleMode}
+              className="switch__input"
+            />
+            <span className="switch__slider"></span>
+          </label>
           <input
             className="search-input"
             placeholder="search"
@@ -38,6 +59,7 @@ const Root = () => {
             ))}
         </div>
       )}
+      <div className="right-panel"></div>
       <Outlet />
     </div>
   );

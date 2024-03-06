@@ -1,4 +1,13 @@
 :root {
+  --body_background: hsl(0, 0%, 95%);
+  --body_background2: hsl(0, 0%, 100%);
+  --body_backgroundHover: hsl(0, 0%, 85%);
+  --body_backgroundHover2: hsl(0, 0%, 90%);
+  --body_backgroundHover3: hsl(0, 0%, 80%);
+  --body_color: black;
+
+
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -12,6 +21,18 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+* {
+  transition: all 0.3s ease-in-out;
+}
+[data-theme="dark"] {
+  --body_background: hsl(0, 0%, 13%);
+  --body_background2: hsl(0, 0%, 15%);
+  --body_backgroundHover: hsl(0, 0%, 35%);
+  --body_backgroundHover2: hsl(0, 0%, 30%);
+  --body_backgroundHover3: hsl(0, 0%, 15%);
+  --body_color: white;
+}
+
 
 a {
   font-weight: 500;

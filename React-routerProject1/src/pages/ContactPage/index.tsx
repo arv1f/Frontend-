@@ -31,6 +31,9 @@ const ContactPage = () => {
                   Edit
                 </button>
                 <button style={{ color: "red" }}>Delete</button>
+                <Link className="close-btn" to={"/"}>
+                  Close
+                </Link>
               </div>
             </div>
           </div>

@@ -1,6 +1,7 @@
 :root {
   --body_background: hsl(0, 0%, 95%);
   --body_background2: hsl(0, 0%, 100%);
+  --body_background3: hsl(0, 0%, 80%);
   --body_backgroundHover: hsl(0, 0%, 85%);
   --body_backgroundHover2: hsl(0, 0%, 90%);
   --body_backgroundHover3: hsl(0, 0%, 80%);
@@ -27,6 +28,7 @@
 [data-theme="dark"] {
   --body_background: hsl(0, 0%, 13%);
   --body_background2: hsl(0, 0%, 15%);
+  --body_background3: hsl(0, 0%, 35%);
   --body_backgroundHover: hsl(0, 0%, 35%);
   --body_backgroundHover2: hsl(0, 0%, 30%);
   --body_backgroundHover3: hsl(0, 0%, 15%);

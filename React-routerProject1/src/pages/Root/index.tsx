@@ -1,40 +1,41 @@
 import useContactsData from "../../hooks/useContactsData";
 import { useState } from "react";
 import "./Root.css";
-import { Form, NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
+import { useThemeStore } from "../../store";
 
-// export function action() {
-//   const contact = createContact();
-//   console.log(contact);
-//   return { contact };
-// }
+// export async function action() {
+//   const contact = await createContact();
+//   return { contact }; }
 
 const Root = () => {
   const { data, isLoading } = useContactsData();
   const [filterWord, setFilterWord] = useState<string>("");
-  const DarkMode = () => {
-    document.querySelector("body")?.setAttribute("data-theme", "dark");
-    localStorage.setItem("selectedTheme", "dark");
-  };
-  const LightMode = () => {
-    document.querySelector("body")?.setAttribute("data-theme", "light");
-    localStorage.setItem("selectedTheme", "light");
-  };
-  const theme = localStorage.getItem("selectedTheme");
-  if (theme === "dark") {
-    DarkMode();
-  } else {
-    LightMode();
-  }
-  const ToggleMode = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.checked) {
-      DarkMode();
-    } else {
-      LightMode();
-    }
-  };
+  const { isThemeDark, toggleTheme } = useThemeStore();
+  // const DarkMode = () => {
+  //   document.querySelector("body")?.setAttribute("data-theme", "dark");
+  //   localStorage.setItem("selectedTheme", "dark");
+  // };
+  // const LightMode = () => {
+  //   document.querySelector("body")?.setAttribute("data-theme", "light");
+  //   localStorage.setItem("selectedTheme", "light");
+  // };
+  // const theme = localStorage.getItem("selectedTheme");
+  // if (theme === "dark") {
+  //   DarkMode();
+  // } else {
+  //   LightMode();
+  // }
+  // const ToggleMode = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   if (e.target.checked) {
+  //     DarkMode();
+  //   } else {
+  //     LightMode();
+  //   }
+  // };
 
   return (
+    // <div className={`root-cont ${isThemeDark ? "dark-theme" : "light-theme"}`}>
     <div className="root-cont">
       {isLoading ? (
         <div>Loading...</div>
@@ -43,9 +44,17 @@ const Root = () => {
           <label className="switch">
             <input
               type="checkbox"
-              onChange={ToggleMode}
+              onChange={() => {
+                toggleTheme();
+                document
+                  .querySelector("body")
+                  ?.setAttribute(
+                    "data-theme",
+                    isThemeDark === "dark" ? "light" : "dark",
+                  );
+              }}
               className="switch__input"
-              defaultChecked={theme === "dark" ? true : false}
+              defaultChecked={isThemeDark === "dark" ? true : false}
             />
             <span className="switch__slider"></span>
           </label>
@@ -84,6 +93,7 @@ const Root = () => {
       <div className="right-panel"></div>
       <Outlet />
     </div>
+    // </div>
   );
 };
 export default Root;

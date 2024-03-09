@@ -1,0 +1,48 @@
+.LoginPage{
+    position: absolute;
+    left : 40%;
+    top: 4rem;
+    width: 23%;
+    height: 55%;
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: black;
+    display: grid;
+    grid-template-rows: 20% 13% 13% 11%;
+    gap: 2%;
+    border-radius: 1.4rem;
+    padding: 0.8rem;
+    border: solid 0.15rem #202530;
+}
+.LoginInput{
+    color: white;
+    background-color: black;
+    border-radius: 5rem;
+    text-align: left;
+    font-size: 1.5rem;
+    box-shadow: none;
+    border: solid 0.1rem #191919;
+}
+
+.LoginButton{
+    border-radius: 1.3rem;
+    text-align: center;
+    font-size: 1.5rem;
+    border: solid 0.15rem #202530;
+    position: absolute;
+    left: 10%;
+    top: 80%;
+    width: 80%;
+    height: 4rem;
+    background-color: #202530;
+}
+.CentrContainer{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.error{
+    color: red;
+    font-size: 18px;
+}
